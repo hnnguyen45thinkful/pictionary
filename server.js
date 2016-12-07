@@ -9,3 +9,4 @@ var server = http.Server(app);
 var io = socket_io(server);
 
 server.listen(process.env.PORT || 8080);
+console.log('Server is running at http://localhost:8080');
