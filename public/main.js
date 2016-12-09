@@ -1,6 +1,8 @@
 var pictionary = function() {
-    var canvas, context;
-
+    var canvas; 
+    var context;
+    //create a guessBox variable;
+    var guessBox;
     var draw = function(position) {
         context.beginPath();
         context.arc(position.x, position.y,
@@ -23,3 +25,13 @@ var pictionary = function() {
 $(document).ready(function() {
     pictionary();
 });
+
+// Listen for the broadcast draw event in public/main.js, and call the draw function when it is received
+// Only draw on mousedown
+// In order to make the drawing experience nicer, alter the code in public/main.js, so that it only draws when the mouse button is held down. In order to achieve this you will need to:
+
+// Listen for the mousedown event
+// When the event is fired, set a variable called drawing to true
+// Listen for the mouseup event
+// When the event is fired, set the drawing variable to false
+// Only perform the mousemove actions when drawing is set to true
