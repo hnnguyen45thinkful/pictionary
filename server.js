@@ -11,10 +11,16 @@ var io = socket_io(server);
 // Here is what adding over here for the emit drawing event for the io.on //
 // The event should contain the position object as data.//
 // In server.js, listen for the draw event, and broadcast it out to all other clients.//
+//Start ar user equal 1.
+var user = 1;
+
 io.on('connection', function (socket) {
+	
+	socket.emit('user', user);
+    user++;
     
-    socket.on('mousemove', function(position) {
-       io.sockets.emit('mousemove', position);
+    socket.on('draw', function(position) {
+       io.sockets.emit('draw', position);
     });
     
     socket.on('guess', function(guess){
