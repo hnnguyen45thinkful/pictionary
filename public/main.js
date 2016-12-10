@@ -1,4 +1,7 @@
+//Include socket io
+var socket = io();
 var pictionary = function() {
+    //Define the canvas, context, guessBox variables.
     var canvas; 
     var context;
     //create a guessBox variable;
@@ -9,7 +12,17 @@ var pictionary = function() {
                          6, 0, 2 * Math.PI);
         context.fill();
     };
-
+    //Add in the onKeyDown and showing guess function below
+    var onKeyDown = function(event){
+        if (event.keyCode ! = 13) {
+        }
+        //Put in the function here
+        function showGuess(guess){
+            $('#show-guess').text(guess);
+        };
+        //Define guess variable
+        var guess = guessBox.val();
+    };
     canvas = $('canvas');
     context = canvas[0].getContext('2d');
     canvas[0].width = canvas[0].offsetWidth;
